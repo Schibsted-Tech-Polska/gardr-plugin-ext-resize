@@ -1,6 +1,7 @@
 # Gardr Resize Plugin (Ext)
 
 Gardr plugin to resize contents of an iframe (images, flash objects, other iframes) if they're exceeding iframe's size.
+
 Requires [options plugin](https://github.com/Schibsted-Tech-Polska/gardr-plugin-host-options) bundled in host.
 
 ## Install
@@ -24,6 +25,7 @@ In your ext bundle file:
 ## Options (host)
 
 ```resizeInnerHorizontal``` - boolean, enables horizontal resizing of iframe content
+
 ```resizeInnerVertical``` - boolean, enables horizontal resizing of iframe content
 
 ## Example
