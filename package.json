@@ -1,0 +1,39 @@
+{
+  "name": "gardr-plugin-ext-resize",
+  "version": "0.1.0",
+  "author": {
+    "name": "Krystian Jarmicki",
+    "email": "krystian.jarmicki@schibsted.pl"
+  },
+  "license": "MIT",
+  "description": "Gardr plugin for resizing content of an iframe",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "dependencies": {
+    "gardr-core-plugin": "0.0.1"
+  },
+  "devDependencies": {
+    "browserify": "3.46.1",
+    "jshint": "2.5.1",
+    "jshint-stylish": "0.2.0",
+    "karma": "0.12.16",
+    "karma-browserifast": "0.6.1",
+    "karma-mocha": "0.1.4",
+    "karma-phantomjs-launcher": "0.1.4",
+    "karma-script-launcher": "0.1.0",
+    "mocha": "1.20.1"
+  },
+  "keywords": [
+    "gardr",
+    "gardr-plugin",
+    "resize"
+  ],
+  "maintainers": [
+    {
+      "name": "kjarmicki",
+      "email": "jarmicki@gmail.com"
+    }
+  ]
+}
