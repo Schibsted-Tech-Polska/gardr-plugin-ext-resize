@@ -11,6 +11,10 @@
   "scripts": {
     "test": "karma start"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Schibsted-Tech-Polska/gardr-plugin-ext-resize"
+  },
   "dependencies": {
     "gardr-core-plugin": "0.0.1"
   },
