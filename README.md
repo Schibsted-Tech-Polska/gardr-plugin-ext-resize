@@ -28,6 +28,8 @@ In your ext bundle file:
 
 ```resizeInnerVertical``` - boolean, enables horizontal resizing of iframe content
 
+```resizeInnerCheckDelay``` - number, amount of miliseconds after which resizing will be performed (default: instant)
+
 ## Example
 
 ```javascript

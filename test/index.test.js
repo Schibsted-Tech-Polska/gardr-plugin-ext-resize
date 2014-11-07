@@ -104,4 +104,46 @@ describe('resize', function() {
 
     });
 
+    it('should delay resize on demand', function(done) {
+
+        window.gardr.params.options.resizeInnerVertical = true;
+        window.gardr.params.options.resizeInnerCheckDelay = 500;
+
+        resize(pluginApi);
+
+        var img = document.createElement('img');
+        img.width = 600;
+        img.height = 600;
+        img.style.border = 'none';
+        container.appendChild(img);
+
+        var object = document.createElement('object');
+        object.width = 600;
+        object.height = 600;
+        container.appendChild(object);
+
+        var iframe = document.createElement('iframe');
+        iframe.width = 600;
+        iframe.height = 600;
+        container.appendChild(iframe);
+
+        pluginApi.trigger('banner:rendered', {
+            width: 600,
+            height: 1800
+        });
+
+        assert.deepEqual(img.style.maxHeight, '', 'image max width set prematurely to 480px');
+        assert.deepEqual(object.style.maxHeight, '', 'object max width set prematurely to 480px');
+        assert.deepEqual(iframe.style.maxHeight, '', 'iframe max width set prematurely to 480px');
+
+        setTimeout(function() {
+            assert.deepEqual(img.style.maxHeight, '480px', 'image max width not set to 480px');
+            assert.deepEqual(object.style.maxHeight, '480px', 'object max width not set to 480px');
+            assert.deepEqual(iframe.style.maxHeight, '480px', 'iframe max width not set to 480px');
+
+            done();
+        }, 1000);
+
+    });
+
 });

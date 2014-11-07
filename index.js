@@ -4,7 +4,7 @@
 
 var resize = function(gardrPluginApi) {
 
-    gardrPluginApi.on('banner:rendered', function() {
+    var tryResize = function() {
         var iframeWidth = window.innerWidth,
             iframeHeight = window.innerHeight;
 
@@ -23,6 +23,15 @@ var resize = function(gardrPluginApi) {
                 }
             }
         });
+    };
+
+    gardrPluginApi.on('banner:rendered', function() {
+        if(gardr.params.options && gardr.params.options.resizeInnerCheckDelay) {
+            setTimeout(tryResize, gardr.params.options.resizeInnerCheckDelay);
+        }
+        else {
+            tryResize();
+        }
     });
 
 };
