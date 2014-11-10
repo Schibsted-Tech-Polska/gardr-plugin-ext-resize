@@ -146,4 +146,33 @@ describe('resize', function() {
 
     });
 
+
+    it('should wait for resizing images while they\'re loading', function(done) {
+
+        window.gardr.params.options.resizeInnerHorizontal = true;
+
+        resize(pluginApi);
+
+        var img = document.createElement('img');
+        img.style.border = 'none';
+        img.src = 'http://upload.wikimedia.org/wikipedia/commons/4/45/VulpesZerdaScratching_cropped.jpg?nocache=' + Math.random();
+
+        img.addEventListener('load', function() {
+            setTimeout(function() {
+                assert.deepEqual(img.style.maxWidth, '100%', 'image max width not set to 100%');
+                done();
+            }, 0);
+        }, false);
+
+        container.appendChild(img);
+
+        pluginApi.trigger('banner:rendered', {
+            width: 600,
+            height: 1800
+        });
+
+        assert.deepEqual(img.style.maxWidth, '', 'image max width set prematurely to 100%');
+
+    });
+
 });
